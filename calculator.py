@@ -3,8 +3,8 @@ from tkinter import *
 root = Tk()
 root.title("Calculator")
 
-e = Entry(root, width=35, borderwidth=5)
-e.grid(row=0, column=0, columnspan=5, padx=10, pady=10)
+e = Entry(root, width=50, borderwidth=5, textvariable=1)
+e.grid(row=0, column=0, columnspan=5, padx=10, pady=10, ipady=3)
 
 
 def button_add():
@@ -30,8 +30,10 @@ button_plus = Button(root, text=str("-"), padx=39, pady=20, command=button_add)
 button_tot = Button(root, text=str("="), padx=37, pady=20, command=button_add)
 button_inv = Button(root, text=str("+/-"), padx=34, pady=20,
                     command=button_add)
-button_clr = Button(root, text=str("Clear"), padx=34, pady=20,
+button_clr = Button(root, text=str("Clear"), padx=77, pady=20,
                     command=button_add)
+button_bksp = Button(root, text=str("Bkspc"), padx=77, pady=20,
+                     command=button_add)
 
 # Place buttons
 button_7.grid(row=1, column=0)
@@ -53,5 +55,9 @@ button_inv.grid(row=4, column=0)
 button_0.grid(row=4, column=1)
 button_dec.grid(row=4, column=2)
 button_tot.grid(row=4, column=3)
+
+button_clr.grid(row=5, column=0, columnspan=2)
+button_bksp.grid(row=5, column=2, columnspan=2)
+
 
 root.mainloop()
