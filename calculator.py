@@ -22,12 +22,16 @@ button_7 = Button(root, text=7, padx=40, pady=20, command=button_add)
 button_8 = Button(root, text=8, padx=40, pady=20, command=button_add)
 button_9 = Button(root, text=9, padx=40, pady=20, command=button_add)
 button_0 = Button(root, text=0, padx=40, pady=20, command=button_add)
-button_dec = Button(root, text=str("."), padx=40, pady=20, command=button_add)
-button_mult = Button(root, text=str("*"), padx=40, pady=20, command=button_add)
-button_subt = Button(root, text=str("-"), padx=40, pady=20, command=button_add)
-button_plus = Button(root, text=str("-"), padx=40, pady=20, command=button_add)
-button_tot = Button(root, text=str("="), padx=40, pady=20, command=button_add)
-button_inv = Button(root, text=str("+/-"), padx=40, pady=20, command=button_add)
+button_dec = Button(root, text=str("."), padx=41.5, pady=20,
+                    command=button_add)
+button_mult = Button(root, text=str("*"), padx=39, pady=20, command=button_add)
+button_subt = Button(root, text=str("-"), padx=39, pady=20, command=button_add)
+button_plus = Button(root, text=str("-"), padx=39, pady=20, command=button_add)
+button_tot = Button(root, text=str("="), padx=37, pady=20, command=button_add)
+button_inv = Button(root, text=str("+/-"), padx=34, pady=20,
+                    command=button_add)
+button_clr = Button(root, text=str("Clear"), padx=34, pady=20,
+                    command=button_add)
 
 # Place buttons
 button_7.grid(row=1, column=0)
@@ -39,7 +43,6 @@ button_4.grid(row=2, column=0)
 button_5.grid(row=2, column=1)
 button_6.grid(row=2, column=2)
 button_subt.grid(row=2, column=3)
-
 
 button_1.grid(row=3, column=0)
 button_2.grid(row=3, column=1)
