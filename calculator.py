@@ -1,8 +1,14 @@
 from tkinter import *
+import os
+
+if os.environ.get('DISPLAY', '') == '':
+    print('no display found. Using :0.0')
+    os.environ.__setitem__('DISPLAY', ':0.0')
 
 root = Tk()
 root.title("Calculator")
-root.iconbitmap('calculator.ico')
+icon = PhotoImage(file="calculator.png")
+root.iconphoto(False, icon)
 
 e = Entry(root, width=50, borderwidth=5, textvariable=1)
 e.grid(row=0, column=0, columnspan=5, padx=10, pady=10, ipady=3)
@@ -78,6 +84,12 @@ def button_backspace():
     e.insert(0, text)
 
 
+def button_squarert():
+    number = float(e.get())
+    e.delete(0, END)
+    e.insert(0, number ** 0.5)
+
+
 # Create buttons
 button_1 = Button(root, text=1, padx=40, pady=20,
                   command=lambda: button_click(1))
@@ -102,23 +114,25 @@ button_0 = Button(root, text=0, padx=40, pady=20,
 button_dec = Button(root, text=str("."), padx=41.5, pady=20,
                     command=lambda: button_decimal())
 
-button_plus = Button(root, text=str("+"), padx=39, pady=20,
+button_plus = Button(root, text=str("+"), padx=37, pady=20,
                      command=lambda: button_add())
-button_subt = Button(root, text=str("-"), padx=39, pady=20,
+button_subt = Button(root, text=str("-"), padx=40, pady=20,
                      command=lambda: button_subtract())
 button_mult = Button(root, text=str("*"), padx=39, pady=20,
                      command=lambda: button_multiply())
-button_div = Button(root, text=str("\\"), padx=37, pady=20,
+button_div = Button(root, text=str("\\"), padx=40, pady=20,
                     command=lambda: button_divide())
 button_tot = Button(root, text=str("="), padx=37, pady=20,
                     command=lambda: button_total())
 
 button_inv = Button(root, text=str("+/-"), padx=34, pady=20,
                     command=lambda: button_invert())
-button_clr = Button(root, text=str("Clear"), padx=77, pady=20,
+button_clr = Button(root, text=str("C"), padx=40, pady=20,
                     command=lambda: button_clear())
-button_bksp = Button(root, text=str("Bkspc"), padx=28, pady=20,
+button_bksp = Button(root, text=str("Bkspc"), padx=25, pady=20,
                      command=lambda: button_backspace())
+button_sqrt = Button(root, text=str("Sq Rt"), padx=27, pady=20,
+                     command=lambda: button_squarert())
 
 # Place buttons
 button_7.grid(row=2, column=0)
@@ -141,8 +155,9 @@ button_0.grid(row=5, column=1)
 button_dec.grid(row=5, column=2)
 button_tot.grid(row=5, column=3)
 
-button_clr.grid(row=1, column=0, columnspan=2)
-button_bksp.grid(row=1, column=2)
+button_clr.grid(row=1, column=0)
+button_bksp.grid(row=1, column=1)
+button_sqrt.grid(row=1, column=2)
 button_div.grid(row=1, column=3)
 
 
